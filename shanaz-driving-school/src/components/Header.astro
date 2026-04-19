@@ -1,0 +1,50 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+
+const navLinks = [
+  { name: "Services", href: "/#services" },
+  { name: "Reviews", href: "/#reviews" },
+  { name: "About", href: "/#about" },
+  { name: "Contact", href: "/#contact" },
+  { name: "Directions", href: "/#directions" }
+];
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <div class="container mx-auto px-4 h-16 flex items-center justify-between max-w-7xl">
+    <a href="/" class="font-bold text-lg md:text-xl text-primary hover:opacity-80 transition-opacity flex-shrink-0">
+      Shanaz Driving School
+    </a>
+
+    <nav class="hidden md:flex items-center gap-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="px-3 py-2 rounded-md text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors"
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href="/#contact"
+      class="px-4 md:px-6 py-2 rounded-lg bg-accent hover:bg-accent/90 text-accent-foreground font-semibold transition-colors text-sm md:text-base flex-shrink-0"
+    >
+      Book a Lesson
+    </a>
+  </div>
+</header>
+
+<style>
+  /* Mobile navigation menu items */
+  @media (max-width: 767px) {
+    nav {
+      display: none;
+    }
+  }
+</style>

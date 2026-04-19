@@ -1,0 +1,7 @@
+Open Terminal in your project folder
+
+Run these commands:
+
+npm install
+npm run dev
+Your website will start at http://localhost:3000

@@ -1,0 +1,270 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import ContactForm from '../components/ContactForm.astro';
+import RequiredB12HeadScripts from '../components/RequiredB12HeadScripts.astro'
+import RequiredB12FooterScripts from '../components/RequiredB12FooterScripts.astro'
+import { BookOpen, Zap, MapPin } from 'lucide-react';
+
+const heroImage = "https://cdn.b12.io/client_media/mHr1oiBh/ad117944-31a2-11f1-9e76-0242ac110002-6YGYVv_u_OdVeFaFxOETs.jpg";
+const instructorImage = "https://cdn.b12.io/client_media/mHr1oiBh/acfa9264-31a2-11f1-8a23-0242ac110002-oidVlATmK8vkimqBsxqGo.jpg";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Shanaz Driving School - Driving Lessons in Halifax</title>
+    <meta name="description" content="Professional driving lessons in Halifax with a highly rated instructor. Friendly, patient lessons for learner drivers." />
+    <RequiredB12HeadScripts />
+  </head>
+
+  <body>
+    <Header />
+
+    <!-- Hero Section -->
+    <section id="hero" class="py-20 bg-gradient-to-br from-background via-background to-accent/5">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+              Shanaz Driving School – Driving lessons in Halifax with a highly rated instructor
+            </h1>
+            <p class="text-lg text-muted-foreground mb-8 leading-relaxed">
+              Friendly, patient driving lessons tailored to learner drivers in Halifax and surrounding areas.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/#contact"
+                class="px-8 py-3 rounded-lg bg-accent hover:bg-accent/90 text-accent-foreground font-semibold transition-colors text-center"
+              >
+                Book a Lesson
+              </a>
+              <a
+                href="tel:+447815671794"
+                class="px-8 py-3 rounded-lg border-2 border-primary text-primary hover:bg-primary/5 font-semibold transition-colors text-center"
+              >
+                Call Now
+              </a>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <img
+              src={heroImage}
+              alt="Driving lesson in Halifax"
+              class="rounded-lg shadow-lg w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Driving Lesson Services
+          </h2>
+          <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+            We offer a range of driving lessons tailored to your needs
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <ServiceCard
+            icon={BookOpen}
+            title="Learner Driving Lessons"
+            description="Structured lessons to help you build confidence and prepare for your driving test. Starting from the basics of vehicle control."
+          />
+          <ServiceCard
+            icon={Zap}
+            title="Refresher Lessons"
+            description="Ideal if you haven't driven for a while and want to rebuild your skills. Get back on the road with confidence."
+          />
+          <ServiceCard
+            icon={MapPin}
+            title="Test Preparation"
+            description="Focused sessions on manoeuvres, mock tests, and common test routes in Halifax. Prepare thoroughly for your driving test."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-muted/30">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Reviews
+          </h2>
+          <div class="flex items-center justify-center gap-2 mb-4">
+            <div class="flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} class="w-5 h-5 fill-accent text-accent" viewBox="0 0 20 20">
+                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
+              ))}
+            </div>
+          </div>
+          <p class="text-xl font-semibold text-foreground mb-2">Highly Rated Instructor</p>
+          <p class="text-muted-foreground">5 out of 5 stars from satisfied students</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <ReviewCard
+            name="Sarah Johnson"
+            rating={5}
+            review="Shanaz is an amazing instructor! She's patient, professional, and made me feel confident behind the wheel. I passed my test on the first try!"
+          />
+          <ReviewCard
+            name="Mike Chen"
+            rating={5}
+            review="Best driving lessons I could have asked for. Shanaz tailored everything to my learning style and was always encouraging. Highly recommended!"
+          />
+          <ReviewCard
+            name="Emma Williams"
+            rating={5}
+            review="Professional, friendly, and incredibly knowledgeable. I felt safe and supported throughout my lessons. Can't thank Shanaz enough!"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              About Shanaz Driving School
+            </h2>
+            <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+              Shanaz Driving School is a driving school based in Halifax, offering driving lessons with a highly rated instructor. Lessons are friendly, patient, and focused on helping you become a safe, confident driver.
+            </p>
+            <p class="text-muted-foreground mb-6 leading-relaxed">
+              With years of experience teaching learner drivers in Halifax, we understand the challenges new drivers face. Our personalized approach ensures you learn at your own pace while building the skills and confidence you need for safe driving.
+            </p>
+            <div class="flex gap-8 text-center">
+              <div>
+                <p class="text-3xl font-bold text-accent">500+</p>
+                <p class="text-sm text-muted-foreground">Students Trained</p>
+              </div>
+              <div>
+                <p class="text-3xl font-bold text-accent">95%</p>
+                <p class="text-sm text-muted-foreground">Pass Rate</p>
+              </div>
+              <div>
+                <p class="text-3xl font-bold text-accent">5★</p>
+                <p class="text-sm text-muted-foreground">Highly Rated</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center md:justify-end">
+            <img
+              src={instructorImage}
+              alt="Shanaz - Driving Instructor"
+              class="rounded-full shadow-lg w-72 h-72 object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="py-20 bg-muted/30">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Contact & Booking
+          </h2>
+          <p class="text-lg text-muted-foreground">
+            Get in touch to book your driving lessons
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-semibold text-foreground mb-8">Contact Information</h3>
+
+            <div class="space-y-8">
+              <div>
+                <h4 class="font-semibold text-foreground mb-2">Phone</h4>
+                <a href="tel:+447815671794" class="text-lg text-primary hover:opacity-80 transition-opacity">
+                  07815 671 794
+                </a>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-foreground mb-2">Hours</h4>
+                <p class="text-muted-foreground mb-2">Monday - Friday: 12am - 11:59pm</p>
+                <p class="text-muted-foreground mb-2">Saturday: Closed</p>
+                <p class="text-muted-foreground">Sunday: Closed</p>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-foreground mb-2">Location</h4>
+                <p class="text-muted-foreground">2 Aked's Rd</p>
+                <p class="text-muted-foreground">Halifax HX1 2TR, United Kingdom</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg p-8 shadow-sm border border-border">
+            <h3 class="text-2xl font-semibold text-foreground mb-6">Book a Lesson</h3>
+            <ContactForm />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Directions Section -->
+    <section id="directions" class="py-20 bg-white">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Location & Directions
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+              Based in Halifax and serving surrounding areas. We offer flexible scheduling to accommodate your lifestyle.
+            </p>
+            <p class="text-lg text-muted-foreground mb-8 leading-relaxed">
+              Whether you're learning to drive for the first time, need a refresher, or want to prepare for your driving test, we're here to help. Get in touch to check availability in your area and book your first lesson.
+            </p>
+            <a
+              href="/#contact"
+              class="inline-block px-8 py-3 rounded-lg bg-accent hover:bg-accent/90 text-accent-foreground font-semibold transition-colors"
+            >
+              Get in Touch
+            </a>
+          </div>
+
+          <div class="rounded-lg overflow-hidden shadow-lg h-96 md:h-full min-h-96">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2376.9999999999!2d-2.3365!3d53.7273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487babc3f4e7c5c1%3A0x0!2s2%20Aked's%20Rd%2C%20Halifax%20HX1%202TR%2C%20United%20Kingdom!5e0!3m2!1sen!2suk!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+
+    <RequiredB12FooterScripts />
+  </body>
+</html>
