@@ -1,6 +1,6 @@
 ---
 interface Props {
-  icon: any;
+  icon: typeof import('@lucide/astro')['BookOpen'];
   title: string;
   description: string;
 }
@@ -20,6 +20,6 @@ const { icon: Icon, title, description } = Astro.props;
   <p class="text-muted-foreground text-sm mb-4 leading-relaxed">{description}</p>
 
   <a href="/#contact" class="text-accent font-semibold text-sm hover:opacity-80 transition-opacity">
-    Enquire →
+    Enquire -&gt;
   </a>
 </div>

@@ -287,7 +287,7 @@ function processHtmlFile(filePath, rootOutDir) {
         // Reset regex state
         duplicateLocRegex.lastIndex = 0
 
-        html = html.replace(duplicateLocRegex, (match, line1, col1, line2, col2) => {
+        html = html.replace(duplicateLocRegex, (_match, line1, col1, line2, col2) => {
             // Keep the second one (lower column number typically indicates original source)
             // The first one from Astro has huge column numbers from minified output
             const col1Num = parseInt(col1, 10)
@@ -310,7 +310,7 @@ function processHtmlFile(filePath, rootOutDir) {
     const duplicateFileRegex = new RegExp(`${ATTR_SOURCE_FILE}="([^"]+)"\\s+${ATTR_SOURCE_FILE}="([^"]+)"`, 'g')
     if (duplicateFileRegex.test(html)) {
         duplicateFileRegex.lastIndex = 0
-        html = html.replace(duplicateFileRegex, (match, file1, file2) => {
+        html = html.replace(duplicateFileRegex, (_match, file1, file2) => {
             // Prefer the one that starts with "src/" (our format)
             if (file2.startsWith(SRC_PREFIX)) {
                 return `${ATTR_SOURCE_FILE}="${file2}"`

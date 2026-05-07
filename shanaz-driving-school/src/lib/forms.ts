@@ -14,7 +14,7 @@ declare const grecaptcha: {
 const PRODUCT_HOST = typeof __PRODUCT_URL__ === 'undefined' ? 'https://b12.io': __PRODUCT_URL__
 const CONTACT_FORM_SUBMISSION_URL = `${PRODUCT_HOST}/contact/send/`
 
-function setFormSubmissionMessage(messageNode: HTMLElement, formNode: HTMLFormElement, successMessage?: string) {
+function setFormSubmissionMessage(messageNode: HTMLElement, successMessage?: string) {
   if (successMessage) {
     messageNode.textContent = successMessage
   }
@@ -65,7 +65,7 @@ function setupForm(formEl: HTMLFormElement) {
 
   const url = formEl.getAttribute('action') || CONTACT_FORM_SUBMISSION_URL
   const formBtn = formEl.querySelector('button[type="submit"]') as HTMLButtonElement
-  const reCaptchaVersion = parseInt(b12Context.recaptcha_version)
+  const reCaptchaVersion = Number(b12Context.recaptcha_version)
 
   if (reCaptchaVersion === RECAPTCHA_VERSION_2) {
     const recaptchaVersionInput = Object.assign(document.createElement('input'), {
@@ -151,7 +151,7 @@ function setupForm(formEl: HTMLFormElement) {
 
           if (formSuccessMessageElement) {
             formEl.style.display = 'none'
-            setFormSubmissionMessage(formSuccessMessageElement, formEl, response?.success_message)
+            setFormSubmissionMessage(formSuccessMessageElement, response?.success_message)
           }
         })
         .catch(function() {

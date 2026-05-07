@@ -4,7 +4,7 @@
 <script is:inline src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaReadyCallback&render=explicit" async="true"></script>
 <script is:inline>
   // Setup reCAPTCHA v2 for all forms
-  function onRecaptchaReadyCallback() {
+  window.onRecaptchaReadyCallback = function () {
     const allForms = document.getElementsByTagName('form')
     for (let i = 0; i < allForms.length; i++) {
       // Create reCAPTCHA container element
@@ -18,7 +18,7 @@
         allForms[i].appendChild(recaptchaDiv)
       }
       // Render reCAPTCHA into the created element
-      grecaptcha.render(`grecaptcha-${i}`, {
+      window.grecaptcha.render(`grecaptcha-${i}`, {
         sitekey: '6Ley3fAdAAAAAE8EheVrtAjuLpKWwJu_hTr-qaNM'
       })
     }

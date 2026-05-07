@@ -9,35 +9,31 @@ import b12Context from './src/b12Context.json';
 
 // Enable source info in build when BUILD_DEV environment variable is set
 const enableSourceInfo = process.env.BUILD_DEV === 'true';
+const { website_url = null } = b12Context;
 
 // https://astro.build/config
-const config = {
+const integrations = [
+  react(),
+  sourceInfoIntegration({
+    enabled: enableSourceInfo,
+    hideToolbar: true
+  })
+];
+
+if (website_url) {
+  integrations.push(sitemap({ lastmod: new Date() }));
+}
+
+export default defineConfig({
   integrations: [
-      react(),
-      sourceInfoIntegration({
-          enabled: enableSourceInfo,
-          hideToolbar: true
-      })
+    ...integrations
   ],
   vite: {
-      plugins: [tailwindcss()],
+    plugins: [/** @type {any} */ (tailwindcss())],
   },
   // Disable toolbar in dev mode when using build-dev
   devToolbar: {
-      enabled: !enableSourceInfo
-  }
-};
-
-const { website_url = null } = b12Context
-
-if (website_url) {
-  config.integrations.push(sitemap(
-    {
-      lastmod: new Date(),
-    }
-  ));
-  config['site'] = website_url
-}
-
-// https://astro.build/config
-export default defineConfig(config)
+    enabled: !enableSourceInfo
+  },
+  site: website_url || undefined
+});

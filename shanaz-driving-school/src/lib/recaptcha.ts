@@ -9,7 +9,7 @@ function getResponseElementValue(formEl: HTMLFormElement) {
 }
 
 function clearError(formUuid: string) {
-  document.querySelectorAll(`#b12-recaptcha-error-${formUuid}`).forEach(el => el.style.display = 'none')
+  document.querySelectorAll<HTMLElement>(`#b12-recaptcha-error-${formUuid}`).forEach(el => el.style.display = 'none')
 }
 
 function highlightError(formUuid: string) {

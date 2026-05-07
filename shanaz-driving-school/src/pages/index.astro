@@ -7,7 +7,7 @@ import ReviewCard from '../components/ReviewCard.astro';
 import ContactForm from '../components/ContactForm.astro';
 import RequiredB12HeadScripts from '../components/RequiredB12HeadScripts.astro'
 import RequiredB12FooterScripts from '../components/RequiredB12FooterScripts.astro'
-import { BookOpen, Zap, MapPin } from 'lucide-react';
+import { BookOpen, Zap, MapPin } from '@lucide/astro';
 
 const heroImage = "https://cdn.b12.io/client_media/mHr1oiBh/ad117944-31a2-11f1-9e76-0242ac110002-6YGYVv_u_OdVeFaFxOETs.jpg";
 const instructorImage = "https://cdn.b12.io/client_media/mHr1oiBh/acfa9264-31a2-11f1-8a23-0242ac110002-oidVlATmK8vkimqBsxqGo.jpg";
@@ -33,7 +33,7 @@ const instructorImage = "https://cdn.b12.io/client_media/mHr1oiBh/acfa9264-31a2-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Shanaz Driving School – Driving lessons in Halifax with a highly rated instructor
+              Shanaz Driving School - Driving lessons in Halifax with a highly rated instructor
             </h1>
             <p class="text-lg text-muted-foreground mb-8 leading-relaxed">
               Friendly, patient driving lessons tailored to learner drivers in Halifax and surrounding areas.
@@ -105,8 +105,8 @@ const instructorImage = "https://cdn.b12.io/client_media/mHr1oiBh/acfa9264-31a2-
           </h2>
           <div class="flex items-center justify-center gap-2 mb-4">
             <div class="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <svg key={i} class="w-5 h-5 fill-accent text-accent" viewBox="0 0 20 20">
+              {[...Array(5)].map(() => (
+                <svg class="w-5 h-5 fill-accent text-accent" viewBox="0 0 20 20">
                   <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                 </svg>
               ))}
@@ -160,7 +160,7 @@ const instructorImage = "https://cdn.b12.io/client_media/mHr1oiBh/acfa9264-31a2-
                 <p class="text-sm text-muted-foreground">Pass Rate</p>
               </div>
               <div>
-                <p class="text-3xl font-bold text-accent">5★</p>
+                <p class="text-3xl font-bold text-accent">5-star</p>
                 <p class="text-sm text-muted-foreground">Highly Rated</p>
               </div>
             </div>

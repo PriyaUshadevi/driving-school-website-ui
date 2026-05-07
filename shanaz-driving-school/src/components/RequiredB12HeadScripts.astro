@@ -2,6 +2,7 @@
 import b12Context from '../b12Context.json'
 
 const canonicalUrl = `${b12Context.website_url.replace(/\/$/, '')}${Astro.url.pathname}`
+const favicon = (b12Context as { favicon?: string }).favicon ?? null
 ---
 
 <link rel="canonical" href={canonicalUrl} />
@@ -48,4 +49,4 @@ const canonicalUrl = `${b12Context.website_url.replace(/\/$/, '')}${Astro.url.pa
     document.head.appendChild(script)
   })()
 </script>
-{b12Context.favicon && <link rel="shortcut icon" href={b12Context.favicon} />}
+{favicon && <link rel="shortcut icon" href={favicon} />}

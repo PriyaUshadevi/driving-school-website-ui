@@ -12,7 +12,6 @@ const { name, review, rating } = Astro.props;
   <div class="flex items-center gap-1 mb-3">
     {[...Array(5)].map((_, i) => (
       <svg
-        key={i}
         class={`w-4 h-4 ${i < rating ? 'fill-accent text-accent' : 'text-border'}`}
         viewBox="0 0 20 20"
       >
@@ -23,5 +22,5 @@ const { name, review, rating } = Astro.props;
 
   <p class="text-muted-foreground text-sm leading-relaxed mb-4">"{review}"</p>
 
-  <p class="font-semibold text-foreground text-sm">– {name}</p>
+  <p class="font-semibold text-foreground text-sm">- {name}</p>
 </div>
